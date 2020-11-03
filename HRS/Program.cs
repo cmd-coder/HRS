@@ -24,7 +24,7 @@ namespace HRS
         {
             Hotel hotel=new Hotel(){ hotelName = "Lakewood", regularRate=110, regularRateWeekend=90, rating=3};
             hotelList.Add(hotel);
-            hotel = new Hotel() { hotelName = "Bridgewood", regularRate = 160, regularRateWeekend= 60, rating=4};
+            hotel = new Hotel() { hotelName = "Bridgewood", regularRate = 150, regularRateWeekend= 50, rating=4};
             hotelList.Add(hotel);
             hotel = new Hotel() { hotelName = "Ridgewood", regularRate = 220, regularRateWeekend=150, rating=5};
             hotelList.Add(hotel);
@@ -41,7 +41,7 @@ namespace HRS
         public static void findCheapestHotelInDateRange(DateTime startDate, DateTime endDate, List<Hotel> hotelList)
         {
             int totalCost = Int32.MaxValue;
-            Hotel hotel = new Hotel();
+            Hotel hotel = hotelList[0];
             foreach(var item in hotelList)
             {
                 int hotelCost = 0;
@@ -52,7 +52,7 @@ namespace HRS
                     else
                         hotelCost += item.regularRate;
                 }
-                if (totalCost > hotelCost)
+                if (totalCost > hotelCost && hotel.rating<item.rating)
                 {
                     totalCost = hotelCost;
                     hotel = item;
