@@ -18,6 +18,7 @@ namespace HRS
             DateTime startDate = Convert.ToDateTime(startDateString);
             DateTime endDate = Convert.ToDateTime(endDateString);
             findCheapestHotelInDateRange(startDate, endDate, hotelList);
+            findBestHotelInDateRange(startDate, endDate, hotelList);
         }
 
         public static void addHotel(List<Hotel> hotelList)
@@ -58,7 +59,34 @@ namespace HRS
                     hotel = item;
                 }
             }
+            Console.WriteLine("The cheapest hotel available with best rating is:");
             Console.WriteLine(hotel.hotelName + ", Total Rates: " + totalCost);
+            Console.WriteLine("--------------------");
+        }
+
+        public static void findBestHotelInDateRange(DateTime startDate, DateTime endDate, List<Hotel> hotelList)
+        {
+            int totalCost = Int32.MaxValue;
+            Hotel hotel = hotelList[0];
+            foreach(var item in hotelList)
+            {
+                int hotelCost = 0;
+                for (var date = startDate;date <= endDate;date=date.AddDays(1))
+                {
+                    if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+                        hotelCost += item.regularRateWeekend;
+                    else
+                        hotelCost += item.regularRate;
+                }
+                if (hotel.rating<item.rating)
+                {
+                    totalCost = hotelCost;
+                    hotel = item;
+                }
+            }
+            Console.WriteLine("The best hotel available is:");
+            Console.WriteLine(hotel.hotelName + ", Total Rates: " + totalCost);
+            Console.WriteLine("--------------------");
         }
     }
 }
