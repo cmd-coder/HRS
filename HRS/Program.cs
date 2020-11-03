@@ -13,8 +13,8 @@ namespace HRS
             List<Hotel> hotelList = new List<Hotel>();
             addHotel(hotelList);
             showHotel(hotelList);
-            string startDateString = "09/10/2020";//mm/dd/yyyy
-            string endDateString = "09/11/2020";
+            string startDateString = "09/11/2020";//mm/dd/yyyy
+            string endDateString = "09/12/2020";
             DateTime startDate = Convert.ToDateTime(startDateString);
             DateTime endDate = Convert.ToDateTime(endDateString);
             findCheapestHotelInDateRange(startDate, endDate, hotelList);
@@ -47,7 +47,10 @@ namespace HRS
                 int hotelCost = 0;
                 for (var date = startDate;date <= endDate;date=date.AddDays(1))
                 {
-                    hotelCost += item.regularRate;
+                    if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+                        hotelCost += item.regularRateWeekend;
+                    else
+                        hotelCost += item.regularRate;
                 }
                 if (totalCost > hotelCost)
                 {
