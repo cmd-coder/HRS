@@ -17,5 +17,11 @@ namespace HRS
 
         public int rating
         { get; set; }
+
+        public int rewardRate
+        { get; set; }
+
+        public int rewardRateWeekend
+        { get; set; }
     }
 }
