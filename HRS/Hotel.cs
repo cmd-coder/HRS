@@ -14,5 +14,8 @@ namespace HRS
 
         public int regularRateWeekend
         { get; set; }
+
+        public int rating
+        { get; set; }
     }
 }

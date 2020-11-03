@@ -22,11 +22,11 @@ namespace HRS
 
         public static void addHotel(List<Hotel> hotelList)
         {
-            Hotel hotel=new Hotel(){ hotelName = "Lakewood", regularRate=110, regularRateWeekend=90};
+            Hotel hotel=new Hotel(){ hotelName = "Lakewood", regularRate=110, regularRateWeekend=90, rating=3};
             hotelList.Add(hotel);
-            hotel = new Hotel() { hotelName = "Bridgewood", regularRate = 160, regularRateWeekend= 60};
+            hotel = new Hotel() { hotelName = "Bridgewood", regularRate = 160, regularRateWeekend= 60, rating=4};
             hotelList.Add(hotel);
-            hotel = new Hotel() { hotelName = "Ridgewood", regularRate = 220, regularRateWeekend=150 };
+            hotel = new Hotel() { hotelName = "Ridgewood", regularRate = 220, regularRateWeekend=150, rating=5};
             hotelList.Add(hotel);
             Console.WriteLine("--------------------");
         }
