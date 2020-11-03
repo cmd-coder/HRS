@@ -22,11 +22,11 @@ namespace HRS
 
         public static void addHotel(List<Hotel> hotelList)
         {
-            Hotel hotel=new Hotel(){ hotelName = "Lakewood", regularRate=110};
+            Hotel hotel=new Hotel(){ hotelName = "Lakewood", regularRate=110, regularRateWeekend=90};
             hotelList.Add(hotel);
-            hotel = new Hotel() { hotelName = "Bridgewood", regularRate = 160 };
+            hotel = new Hotel() { hotelName = "Bridgewood", regularRate = 160, regularRateWeekend= 60};
             hotelList.Add(hotel);
-            hotel = new Hotel() { hotelName = "Ridgewood", regularRate = 220 };
+            hotel = new Hotel() { hotelName = "Ridgewood", regularRate = 220, regularRateWeekend=150 };
             hotelList.Add(hotel);
             Console.WriteLine("--------------------");
         }
@@ -34,7 +34,7 @@ namespace HRS
         public static void showHotel(List<Hotel> hotelList)
         {
             foreach(var item in hotelList)
-                Console.WriteLine("Hotel Name: " + item.hotelName + "\tHotel Rate: " + item.regularRate);
+                Console.WriteLine("Hotel Name: " + item.hotelName + "\tHotel Rate: " + item.regularRate+"\t Weekend Rate: "+item.regularRateWeekend);
             Console.WriteLine("--------------------");
         }
 
