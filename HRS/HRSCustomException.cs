@@ -8,7 +8,6 @@ namespace HRS
     {
         public enum ExceptionType
         {
-            WRONG_DATE_FORMAT,
             WRONG_DATES,
             WRONG_CUSTOMER_TYPE,
         }

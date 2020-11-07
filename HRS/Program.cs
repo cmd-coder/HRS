@@ -10,6 +10,11 @@ namespace HRS
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome To Hotel Reservation Program");
+            RunHRS();
+        }
+
+        public static void RunHRS()
+        {
             List<Hotel> hotelList = new List<Hotel>();
             ManageHotels.AddHotel(hotelList);
             ManageHotels.ShowHotel(hotelList);
@@ -24,7 +29,7 @@ namespace HRS
 
             String customerType = ManageHotels.TakeCustomerType();
 
-            if(customerType.ToLower()=="regular")
+            if (customerType.ToLower() == "regular")
             {
                 ManageHotels.FindCheapestHotelInDateRangeRegularCustomers(startDate, endDate, hotelList);
                 ManageHotels.FindBestHotelInDateRangeRegularCustomers(startDate, endDate, hotelList);
@@ -34,7 +39,6 @@ namespace HRS
                 ManageHotels.FindCheapestHotelInDateRangeForLoyalCustomers(startDate, endDate, hotelList);
             }
         }
-
         
     }
 }
