@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HRS
 {
-    class Hotel
+    public class Hotel
     {
         public string hotelName
         { get; set; }

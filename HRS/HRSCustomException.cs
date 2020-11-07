@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HRS
 {
-    class HRSCustomException : Exception
+    public class HRSCustomException : Exception
     {
         public enum ExceptionType
         {
